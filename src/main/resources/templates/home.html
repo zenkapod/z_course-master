@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Информационная подсистема учета ценных бумаг</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<div class="header-vertical">
+    <a href="/" class="home-link">
+        <img src="/images/guarantee.png">
+    </a>
+    <div class="main-buttons-vertical">
+    <a href="/bond/all">Облигации</a>
+    <a href="/security/all">Акции</a>
+    <a href="/finAsset/all">Финансовые инструменты</a>
+    <a href="/tiker/all">Тикеры ценных бумаг</a>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="title">Учет ценных бумаг</div>
+    <a href="/login" class="login-button" sec:authorize="!isAuthenticated()">Войти в систему</a>
+    <a href="javascript: document.logoutForm.submit()" class="exit" sec:authorize="isAuthenticated()">Выйти из системы</a>
+    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true" sec:authorize="isAuthenticated()">
+        <input hidden type="submit" value="Sign Out" />
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    </form>
+</div>
+<footer class="footer">
+    <span>Проект выполнен в рамках курсового проекта. Выполнила Подзолко Евгения ПИ-332</span>
+</footer>
+</body>
+</html>
+
+
+
