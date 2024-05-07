@@ -28,6 +28,8 @@ public class TikerControllerTest {
 
     @MockBean
     private TikerRepository tikerRepository;
+    @MockBean
+    private FinAssetRepository finAssetRepository;
 
     @Test
     @WithMockUser
